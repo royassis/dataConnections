@@ -4,6 +4,6 @@ class ResourceNameExistsException(Exception):
     pass
 
 
-class BaseResource:
-    def __init__(self):
-        pass
+class BaseResource(abc.ABC):
+    def __init__(self,name):
+        self.name = name;

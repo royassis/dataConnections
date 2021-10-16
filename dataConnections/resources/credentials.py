@@ -2,8 +2,9 @@ from dataConnections.resources.base import BaseResource
 
 
 class CredentialsResource(BaseResource):
-    def __init__(self, password):
+    def __init__(self, password, *args, **kwargs):
         self.password = password
+        super(CredentialsResource, self).__init__(*args, **kwargs)
 
 
 class ExcelCredentials(CredentialsResource):
@@ -11,7 +12,7 @@ class ExcelCredentials(CredentialsResource):
 
 
 class DbCredentials(CredentialsResource):
-    def __init__(self, username, password, host):
+    def __init__(self, username, host, *args, **kwargs):
         self.host = host
         self.username = username
-        super(DbCredentials, self).__init__(password)
+        super(DbCredentials, self).__init__(*args, **kwargs)

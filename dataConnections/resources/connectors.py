@@ -42,8 +42,8 @@ class CsvResource(FileResource):
 
 
 class ExcelResource(FileResource):
-    def __init__(self, filepath_or_buffer, credentials = None):
-        super(filepath_or_buffer)
+    def __init__(self, filepath_or_buffer, credentials, *args, **kwargs):
+        super(ExcelResource, self).__init__(filepath_or_buffer, *args, **kwargs)
         self.credentials = credentials
 
     def read(self, *args, **kwargs):
